@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f7fc;
+            color: #183153;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0002;
+        }
+
+        a {
+            display: inline-block;
+            background: #123c69;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background: #1e6091;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Patient Dashboard</h1>
+    <p>Welcome to Our Hospital</p>
+</header>
+
+<div class="container">
+
+    <h2>Welcome, Patient!</h2>
+    <p>Manage your hospital appointments easily.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>👨‍⚕️ Doctors</h3>
+            <a href="doctors.html">View Doctors</a>
+        </div>
+
+        <div class="card">
+            <h3>📅 Appointments</h3>
+            <a href="appointment.html">Book Appointment</a>
+        </div>
+
+        <div class="card">
+            <h3>📋 Patient Records</h3>
+            <a href="patient-records.html">View Records</a>
+        </div>
+
+        <div class="card">
+            <h3>💳 Billing</h3>
+            <a href="billing.html">View Billing</a>
+        </div>
+
+        <div class="card">
+            <h3>❓ FAQ</h3>
+            <a href="faq.html">View FAQ</a>
+        </div>
+
+        <div class="card">
+            <h3>💬 Feedback</h3>
+            <a href="feedback.html">Give Feedback</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

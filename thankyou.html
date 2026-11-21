@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thank You | Hospital Appointment System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f1f6fc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .thankyou-container {
+            background: white;
+            max-width: 850px;
+            width: 100%;
+            padding: 55px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(20, 60, 100, 0.10);
+            animation: fadeIn 1s ease;
+        }
+
+        .hospital-icon {
+            width: 110px;
+            height: 110px;
+            background: #e7f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            margin: 0 auto 25px;
+        }
+
+        .success-label {
+            color: #16845b;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #123c69;
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 580px;
+            margin: 0 auto 25px;
+        }
+
+        .message-box {
+            background: #f2f7fc;
+            padding: 22px;
+            border-radius: 12px;
+            margin: 25px auto;
+            max-width: 580px;
+        }
+
+        .message-box h3 {
+            color: #123c69;
+            margin-bottom: 8px;
+        }
+
+        .message-box p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .visit-again {
+            font-size: 27px;
+            color: #123c69;
+            font-weight: 700;
+            margin: 25px 0;
+        }
+
+        .visit-again span {
+            color: #e34b65;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background: #123c69;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #1e6091;
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px solid #e5eaf0;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .thankyou-container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 29px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .visit-again {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="thankyou-container">
+
+        <div class="hospital-icon">
+            🏥
+        </div>
+
+        <p class="success-label">THANK YOU FOR CHOOSING US</p>
+
+        <h1>Thank You!</h1>
+
+        <p class="description">
+            We sincerely appreciate your trust in our hospital.
+            Your health and well-being are always our priority.
+            We are happy to be a part of your healthcare journey.
+        </p>
+
+        <div class="message-box">
+            <h3>Your Health, Our Priority</h3>
+            <p>
+                Thank you for using our Hospital Appointment System.
+                We look forward to serving you with care, comfort and quality.
+            </p>
+        </div>
+
+        <div class="visit-again">
+            Visit Again! <span>♥</span>
+        </div>
+
+        <a href="index.html" class="home-btn">
+            ← Back to Home
+        </a>
+
+        <div class="footer">
+            © 2026 Hospital Appointment System.
+            All Rights Reserved.
+        </div>
+
+    </div>
+
+</body>
+</html>

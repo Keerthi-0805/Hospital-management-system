@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Booking</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .appointment-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #0002;
+        }
+
+        .appointment-container h2 {
+            text-align: center;
+            color: #123c69;
+            margin-bottom: 25px;
+        }
+
+        .appointment-container label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #123c69;
+        }
+
+        .appointment-container input,
+        .appointment-container select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .appointment-container button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #123c69;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .appointment-container button:hover {
+            background: #0b2948;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>🏥 HealthCare Hospital</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Book Your Appointment</h1>
+            <p>Schedule your hospital visit easily</p>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT FORM -->
+    <div class="appointment-container">
+
+        <h2>Appointment Details</h2>
+
+        <form id="appointmentForm">
+
+            <label for="patientName">Patient Name</label>
+            <input
+                type="text"
+                id="patientName"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="doctor">Select Doctor</label>
+            <select id="doctor" required>
+                <option value="">Select Doctor</option>
+                <option value="General Physician">General Physician</option>
+                <option value="Cardiologist">Cardiologist</option>
+                <option value="Dentist">Dentist</option>
+            </select>
+
+            <label for="date">Appointment Date</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Appointment Time</label>
+            <input type="time" id="time" required>
+
+            <button type="submit">
+                Book Appointment
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Prevent selecting past dates
+        document.getElementById("date").min =
+            new Date().toISOString().split("T")[0];
+
+        document.getElementById("appointmentForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const appointment = {
+                patient: document.getElementById("patientName").value,
+                doctor: document.getElementById("doctor").value,
+                date: document.getElementById("date").value,
+                time: document.getElementById("time").value,
+                id: "APT" + Date.now()
+            };
+
+            localStorage.setItem(
+                "appointment",
+                JSON.stringify(appointment)
+            );
+
+            window.location.href = "confirmation.html";
+
+        });
+
+    </script>
+
+</body>
+</html>

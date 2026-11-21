@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Doctor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">HealthCare Hospital</a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="admin.html">Add Doctor</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Add New Doctor</h1>
+
+    <form id="doctorForm">
+        <label>Doctor Name</label>
+        <input type="text" id="name" required>
+
+        <label>Doctor Photo URL</label>
+        <input type="text" id="photo" placeholder="Paste image URL" required>
+
+        <label>Specialization</label>
+        <input type="text" id="specialization" required>
+
+        <label>Available Days</label>
+        <input type="text" id="days" required>
+
+        <label>Consultation Time</label>
+        <input type="text" id="time" required>
+
+        <label>Experience</label>
+        <input type="text" id="experience" required>
+
+        <button type="submit">Save Doctor</button>
+    </form>
+
+    <p id="message"></p>
+</div>
+
+<script>
+document.getElementById("doctorForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let doctors = JSON.parse(localStorage.getItem("doctors")) || [];
+
+    let doctor = {
+        name: document.getElementById("Dr. Meena").value,
+
+        photo: document.getElementById("https://images.unsplash.com/photo-1559839734-2b71ea197ec2").value,
+
+        specialization: document.getElementById("Dermatologist").value,
+
+        days: document.getElementById("Monday - Saturday").value,
+
+        time: document.getElementById("10 AM - 4 PM").value,
+        
+        experience: document.getElementById("5 Years").value
+    };
+
+    doctors.push(doctor);
+    localStorage.setItem("doctors", JSON.stringify(doctors));
+
+    document.getElementById("message").innerText =
+        "Doctor Added Successfully!";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>

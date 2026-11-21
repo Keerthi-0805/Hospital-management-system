@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Feedback | MediCare</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+        }
+
+        .feedback-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .feedback-sidebar {
+            width: 235px;
+            background: #123c69;
+            color: white;
+            padding: 25px 18px;
+            box-sizing: border-box;
+        }
+
+        .feedback-sidebar h2 {
+            margin-bottom: 5px;
+        }
+
+        .feedback-sidebar p {
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .feedback-sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            margin-bottom: 7px;
+            border-radius: 7px;
+        }
+
+        .feedback-sidebar a:hover,
+        .feedback-sidebar a.active {
+            background: #2563a6;
+        }
+
+        .feedback-main {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .feedback-main header h1 {
+            color: #123c69;
+            margin-bottom: 8px;
+        }
+
+        .feedback-main header p {
+            color: #64748b;
+        }
+
+        .feedback-card {
+            background: white;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px #00000012;
+        }
+
+        .feedback-card h2 {
+            color: #123c69;
+            margin-top: 0;
+        }
+
+        .feedback-subtitle {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #168aad;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            background: #123c69;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563a6;
+        }
+
+        #feedbackMessage {
+            color: #15803d;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 18px;
+        }
+
+        @media(max-width: 750px) {
+            .feedback-layout {
+                flex-direction: column;
+            }
+
+            .feedback-sidebar {
+                width: 100%;
+            }
+
+            .feedback-main {
+                padding: 18px;
+            }
+
+            .feedback-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="feedback-layout">
+
+    <aside class="feedback-sidebar">
+
+        <h2>🏥 MediCare</h2>
+        <p>Hospital Management</p>
+
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="register.html">Registration</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointment.html">Appointments</a>
+        <a href="patient-records.html">Patient Records</a>
+        <a href="queue.html">Patient Queue</a>
+        <a href="billing.html">Billing</a>
+        <a href="reports.html">Reports</a>
+        <a href="feedback.html" class="active">Feedback</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="admin.html">Admin</a>
+
+    </aside>
+
+    <main class="feedback-main">
+
+        <header>
+            <h1>Patient Feedback</h1>
+            <p>We value your experience and suggestions.</p>
+        </header>
+
+        <section class="feedback-card">
+
+            <h2>Share Your Experience</h2>
+
+            <p class="feedback-subtitle">
+                Help us improve our hospital services.
+            </p>
+
+            <form id="feedbackForm">
+
+                <label>Patient Name</label>
+                <input type="text" id="patientName"
+                placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" id="email"
+                placeholder="Enter your email" required>
+
+                <label>Rate Our Service</label>
+
+                <select id="rating" required>
+                    <option value="">Select Rating</option>
+                    <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                    <option value="4">⭐⭐⭐⭐ Very Good</option>
+                    <option value="3">⭐⭐⭐ Good</option>
+                    <option value="2">⭐⭐ Average</option>
+                    <option value="1">⭐ Poor</option>
+                </select>
+
+                <label>Department</label>
+
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option>General Medicine</option>
+                    <option>Cardiology</option>
+                    <option>Neurology</option>
+                    <option>Orthopedics</option>
+                    <option>Dermatology</option>
+                </select>
+
+                <label>Your Feedback</label>
+
+                <textarea id="feedbackText" rows="5"
+                placeholder="Write your feedback here..."
+                required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+
+            </form>
+
+            <p id="feedbackMessage"></p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+document.getElementById("feedbackForm").addEventListener("submit",
+function(event) {
+
+    event.preventDefault();
+
+    let feedback = {
+        name: document.getElementById("patientName").value,
+        email: document.getElementById("email").value,
+        rating: document.getElementById("rating").value,
+        department: document.getElementById("department").value,
+        message: document.getElementById("feedbackText").value
+    };
+
+    let feedbackList =
+        JSON.parse(localStorage.getItem("feedbackList")) || [];
+
+    feedbackList.push(feedback);
+
+    localStorage.setItem("feedbackList",
+        JSON.stringify(feedbackList));
+
+    document.getElementById("feedbackMessage").innerText =
+        "Thank you! Your feedback has been submitted successfully.";
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>

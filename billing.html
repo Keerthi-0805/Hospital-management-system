@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Management | MediCare</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fb;
+        }
+
+        .billing-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .billing-sidebar {
+            width: 230px;
+            background: #123c69;
+            color: white;
+            padding: 25px 18px;
+            box-sizing: border-box;
+        }
+
+        .billing-sidebar h2 {
+            margin-bottom: 5px;
+        }
+
+        .billing-sidebar p {
+            color: #cbd5e1;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .billing-sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 13px;
+            margin-bottom: 8px;
+            border-radius: 7px;
+        }
+
+        .billing-sidebar a:hover,
+        .billing-sidebar a.active {
+            background: #2563a6;
+        }
+
+        .billing-main {
+            flex: 1;
+            padding: 30px;
+            min-width: 0;
+        }
+
+        .billing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .billing-header h1 {
+            color: #123c69;
+            margin-bottom: 5px;
+        }
+
+        .billing-header p {
+            color: #64748b;
+        }
+
+        .billing-header span {
+            background: #dbeafe;
+            color: #123c69;
+            padding: 10px 18px;
+            border-radius: 20px;
+        }
+
+        .billing-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000010;
+            border-left: 5px solid #168aad;
+        }
+
+        .stat-box p {
+            color: #64748b;
+        }
+
+        .stat-box h2 {
+            color: #123c69;
+            margin: 10px 0;
+        }
+
+        .stat-box small {
+            color: #16a085;
+        }
+
+        .billing-form {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000010;
+            max-width: 850px;
+        }
+
+        .billing-form h2 {
+            color: #123c69;
+        }
+
+        .form-subtitle {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .billing-fields {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            color: #334155;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            box-sizing: border-box;
+            margin-bottom: 18px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #168aad;
+        }
+
+        .total-section {
+            background: #eaf3fb;
+            padding: 18px;
+            border-radius: 9px;
+            margin: 15px 0 22px;
+        }
+
+        .total-section span {
+            color: #475569;
+        }
+
+        .total-section h2 {
+            color: #123c69;
+            margin-bottom: 0;
+        }
+
+        button {
+            background: #123c69;
+            color: white;
+            padding: 13px 25px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #2563a6;
+        }
+
+        #message {
+            color: #15803d;
+            font-weight: bold;
+            margin-top: 18px;
+        }
+
+        @media(max-width: 750px) {
+            .billing-layout {
+                flex-direction: column;
+            }
+
+            .billing-sidebar {
+                width: 100%;
+            }
+
+            .billing-main {
+                padding: 18px;
+            }
+
+            .billing-fields {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="billing-layout">
+
+    <aside class="billing-sidebar">
+        <h2>🏥 MediCare</h2>
+        <p>Hospital Management</p>
+
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="patient-records.html">Patients</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointment.html">Appointments</a>
+        <a href="queue.html">Patient Queue</a>
+        <a href="billing.html" class="active">Billing</a>
+        <a href="admin.html">Admin</a>
+        <a href="reports.html">Reports</a>
+    </aside>
+
+    <main class="billing-main">
+
+        <header class="billing-header">
+            <div>
+                <h1>Billing Management</h1>
+                <p>Manage patient payments and invoices</p>
+            </div>
+            <span>Admin Panel</span>
+        </header>
+
+        <section class="billing-stats">
+
+            <div class="stat-box">
+                <p>Total Revenue</p>
+                <h2>₹45,000</h2>
+                <small>Overall collection</small>
+            </div>
+
+            <div class="stat-box">
+                <p>Paid Bills</p>
+                <h2>35</h2>
+                <small>Successful payments</small>
+            </div>
+
+            <div class="stat-box">
+                <p>Pending Bills</p>
+                <h2>08</h2>
+                <small>Awaiting payment</small>
+            </div>
+
+        </section>
+
+        <section class="billing-form">
+
+            <h2>Create New Bill</h2>
+            <p class="form-subtitle">Enter patient and billing information</p>
+
+            <form id="billForm">
+
+                <div class="billing-fields">
+
+                    <div>
+                        <label>Patient Name</label>
+                        <input type="text" id="patientName"
+                        placeholder="Enter patient name" required>
+                    </div>
+
+                    <div>
+                        <label>Patient ID</label>
+                        <input type="text" id="patientId"
+                        placeholder="Enter patient ID" required>
+                    </div>
+
+                    <div>
+                        <label>Doctor Consultation Fee (₹)</label>
+                        <input type="number" id="doctorFee"
+                        placeholder="Enter amount" min="0" required>
+                    </div>
+
+                    <div>
+                        <label>Medicine Charges (₹)</label>
+                        <input type="number" id="medicineFee"
+                        placeholder="Enter amount" min="0" required>
+                    </div>
+
+                    <div>
+                        <label>Lab Charges (₹)</label>
+                        <input type="number" id="labFee"
+                        placeholder="Enter amount" min="0" required>
+                    </div>
+
+                    <div>
+                        <label>Other Charges (₹)</label>
+                        <input type="number" id="otherFee"
+                        placeholder="Enter amount" min="0" required>
+                    </div>
+
+                </div>
+
+                <div class="total-section">
+                    <span>Total Bill Amount</span>
+                    <h2 id="totalAmount">₹ 0.00</h2>
+                </div>
+
+                <label>Payment Status</label>
+                <select id="paymentStatus">
+                    <option value="Pending">Pending</option>
+                    <option value="Paid">Paid</option>
+                </select>
+
+                <button type="submit">Generate Bill</button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+
+const billForm = document.getElementById("billForm");
+
+function calculateTotal() {
+
+    let doctor = Number(document.getElementById("doctorFee").value) || 0;
+    let medicine = Number(document.getElementById("medicineFee").value) || 0;
+    let lab = Number(document.getElementById("labFee").value) || 0;
+    let other = Number(document.getElementById("otherFee").value) || 0;
+
+    let total = doctor + medicine + lab + other;
+
+    document.getElementById("totalAmount").innerText =
+        "₹ " + total.toFixed(2);
+}
+
+billForm.addEventListener("input", calculateTotal);
+
+billForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let bill = {
+        patientName: document.getElementById("patientName").value,
+        patientId: document.getElementById("patientId").value,
+        doctorFee: Number(document.getElementById("doctorFee").value),
+        medicineFee: Number(document.getElementById("medicineFee").value),
+        labFee: Number(document.getElementById("labFee").value),
+        otherFee: Number(document.getElementById("otherFee").value),
+        total: Number(document.getElementById("doctorFee").value) +
+               Number(document.getElementById("medicineFee").value) +
+               Number(document.getElementById("labFee").value) +
+               Number(document.getElementById("otherFee").value),
+        status: document.getElementById("paymentStatus").value
+    };
+
+    let bills = JSON.parse(localStorage.getItem("bills")) || [];
+    bills.push(bill);
+
+    localStorage.setItem("bills", JSON.stringify(bills));
+
+    document.getElementById("message").innerText =
+        "Bill generated successfully!";
+
+    billForm.reset();
+    calculateTotal();
+
+});
+
+</script>
+
+</body>
+</html>

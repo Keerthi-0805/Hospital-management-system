@@ -1,0 +1,663 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthCare Hospital | Your Health, Our Priority</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- OPEN ALL LINKS IN THE SAME TAB -->
+    <base target="_self">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f9ff;
+            color: #183153;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        .home-navbar {
+            background: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .home-logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: #0875c9;
+        }
+
+        .home-nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .home-nav a {
+            color: #334b68;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .home-nav a:hover {
+            color: #0875c9;
+        }
+
+        .home-nav .nav-register {
+            background: #0875c9;
+            color: white;
+            padding: 11px 19px;
+            border-radius: 7px;
+        }
+
+        .home-nav .nav-register:hover {
+            background: #075b9c;
+            color: white;
+        }
+
+        /* HERO SECTION */
+
+        .home-hero {
+            padding: 85px 8%;
+            min-height: 490px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+            background: linear-gradient(120deg, #e5f3ff, #f8fbff);
+        }
+
+        .home-hero-content {
+            max-width: 610px;
+        }
+
+        .home-tag {
+            display: inline-block;
+            background: #d5ebff;
+            color: #0875c9;
+            padding: 9px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .home-hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            color: #15385e;
+            margin-bottom: 20px;
+        }
+
+        .home-hero h1 span {
+            color: #0875c9;
+        }
+
+        .home-hero p {
+            color: #62758d;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .home-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .home-btn {
+            padding: 14px 23px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .home-btn-primary {
+            background: #0875c9;
+            color: white;
+        }
+
+        .home-btn-primary:hover {
+            background: #075b9c;
+            transform: translateY(-3px);
+        }
+
+        .home-btn-outline {
+            border: 2px solid #0875c9;
+            color: #0875c9;
+        }
+
+        .home-btn-outline:hover {
+            background: #0875c9;
+            color: white;
+        }
+
+        .home-hero-art {
+            width: 340px;
+            height: 340px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #c9e7ff, #eaf6ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 125px;
+            box-shadow: 0 15px 40px rgba(8,117,201,0.12);
+        }
+
+        /* TRUST BAR */
+
+        .home-trust {
+            background: white;
+            padding: 27px 7%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+
+        .home-trust h3 {
+            color: #0875c9;
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .home-trust p {
+            color: #718096;
+            font-size: 13px;
+        }
+
+        /* SECTION COMMON */
+
+        .home-section {
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .home-heading {
+            font-size: 32px;
+            color: #15385e;
+            margin-bottom: 12px;
+        }
+
+        .home-subtitle {
+            color: #718096;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 38px;
+        }
+
+        /* SERVICES */
+
+        .home-service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .home-service-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: 14px;
+            box-shadow: 0 5px 22px rgba(24,49,83,0.06);
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .home-service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 28px rgba(8,117,201,0.12);
+        }
+
+        .home-service-icon {
+            width: 58px;
+            height: 58px;
+            background: #e6f3ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+            margin-bottom: 20px;
+        }
+
+        .home-service-card h3 {
+            font-size: 19px;
+            color: #183153;
+            margin-bottom: 12px;
+        }
+
+        .home-service-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .home-service-card a {
+            color: #0875c9;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* WHY CHOOSE US */
+
+        .home-why {
+            background: white;
+        }
+
+        .home-why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .home-why-card {
+            background: #f5f9ff;
+            padding: 27px 18px;
+            border-radius: 12px;
+        }
+
+        .home-why-card .why-icon {
+            font-size: 32px;
+            margin-bottom: 13px;
+        }
+
+        .home-why-card h3 {
+            font-size: 16px;
+            margin-bottom: 9px;
+        }
+
+        .home-why-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #718096;
+        }
+
+        /* CTA */
+
+        .home-cta {
+            margin: 65px 8%;
+            padding: 48px 25px;
+            text-align: center;
+            background: linear-gradient(120deg, #0875c9, #075b9c);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .home-cta h2 {
+            font-size: 29px;
+            margin-bottom: 13px;
+        }
+
+        .home-cta p {
+            color: #e2f1ff;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .home-cta a {
+            display: inline-block;
+            background: white;
+            color: #0875c9;
+            padding: 13px 24px;
+            border-radius: 7px;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+
+        .home-footer {
+            background: #102d4d;
+            color: white;
+            padding: 35px 8%;
+            text-align: center;
+        }
+
+        .home-footer h2 {
+            margin-bottom: 12px;
+        }
+
+        .home-footer p {
+            color: #c6d6e7;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .home-footer a {
+            color: #dcecff;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .home-footer a:hover {
+            color: #65bdff;
+        }
+
+        .home-footer .copyright {
+            margin-top: 23px;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .home-navbar {
+                justify-content: center;
+            }
+
+            .home-nav {
+                justify-content: center;
+            }
+
+            .home-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 6%;
+            }
+
+            .home-hero h1 {
+                font-size: 38px;
+            }
+
+            .home-buttons {
+                justify-content: center;
+            }
+
+            .home-hero-art {
+                width: 250px;
+                height: 250px;
+                font-size: 95px;
+            }
+
+            .home-service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .home-why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .home-nav {
+                gap: 13px;
+            }
+
+            .home-nav a {
+                font-size: 13px;
+            }
+
+            .home-hero h1 {
+                font-size: 32px;
+            }
+
+            .home-trust {
+                grid-template-columns: 1fr;
+            }
+
+            .home-service-grid,
+            .home-why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-heading {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <header class="home-navbar">
+        <div class="home-logo">
+            🏥 HealthCare Hospital
+        </div>
+
+        <nav class="home-nav">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="register.html" class="nav-register">Register</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="home-hero">
+        <div class="home-hero-content">
+
+            <span class="home-tag">
+                WELCOME TO HEALTHCARE HOSPITAL
+            </span>
+
+            <h1>
+                Your Health,<br>
+                Our <span>Priority.</span>
+            </h1>
+
+            <p>
+                Experience quality healthcare with trusted doctors
+                and modern medical facilities. Book your appointment
+                easily and take the first step towards a healthier life.
+            </p>
+
+            <div class="home-buttons">
+                <a href="register.html" class="home-btn home-btn-primary">
+                    Book Appointment →
+                </a>
+
+                <a href="doctors.html" class="home-btn home-btn-outline">
+                    Explore Doctors
+                </a>
+            </div>
+        </div>
+
+        <div class="home-hero-art">
+            🩺
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+
+    <section class="home-trust">
+        <div>
+            <h3>👨‍⚕️ Expert Doctors</h3>
+            <p>Experienced medical professionals</p>
+        </div>
+
+        <div>
+            <h3>🏥 Quality Care</h3>
+            <p>Patient-focused healthcare services</p>
+        </div>
+
+        <div>
+            <h3>📅 Easy Booking</h3>
+            <p>Simple online appointment booking</p>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+
+    <section class="home-section">
+        <h2 class="home-heading">Our Healthcare Services</h2>
+
+        <p class="home-subtitle">
+            We provide reliable healthcare services to support
+            your health and well-being.
+        </p>
+
+        <div class="home-service-grid">
+
+            <div class="home-service-card">
+                <div class="home-service-icon">👨‍⚕️</div>
+                <h3>Doctor Consultation</h3>
+                <p>
+                    Consult experienced doctors and receive
+                    professional medical guidance.
+                </p>
+                <a href="doctors.html">View Doctors →</a>
+            </div>
+
+            <div class="home-service-card">
+                <div class="home-service-icon">📅</div>
+                <h3>Appointment Booking</h3>
+                <p>
+                    Schedule your hospital appointments
+                    quickly and conveniently.
+                </p>
+                <a href="appointment.html">Book Now →</a>
+            </div>
+
+            <div class="home-service-card">
+                <div class="home-service-icon">⏰</div>
+                <h3>Queue Management</h3>
+                <p>
+                    Check your appointment queue and
+                    manage your waiting time.
+                </p>
+                <a href="queue.html">View Queue →</a>
+            </div>
+
+            <div class="home-service-card">
+                <div class="home-service-icon">📋</div>
+                <h3>Patient Records</h3>
+                <p>
+                    Access and manage patient information
+                    through the hospital system.
+                </p>
+                <a href="patient-records.html">View Records →</a>
+            </div>
+
+            <div class="home-service-card">
+                <div class="home-service-icon">💳</div>
+                <h3>Billing Services</h3>
+                <p>
+                    View billing information and
+                    payment details.
+                </p>
+                <a href="billing.html">View Billing →</a>
+            </div>
+
+            <div class="home-service-card">
+                <div class="home-service-icon">💬</div>
+                <h3>Patient Feedback</h3>
+                <p>
+                    Share your experience and help
+                    us improve our services.
+                </p>
+                <a href="feedback.html">Give Feedback →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="home-section home-why">
+        <h2 class="home-heading">Why Choose HealthCare Hospital?</h2>
+
+        <p class="home-subtitle">
+            Your comfort, safety and health are always our priority.
+        </p>
+
+        <div class="home-why-grid">
+
+            <div class="home-why-card">
+                <div class="why-icon">🩺</div>
+                <h3>Expert Care</h3>
+                <p>Professional care from experienced doctors.</p>
+            </div>
+
+            <div class="home-why-card">
+                <div class="why-icon">⚡</div>
+                <h3>Quick Service</h3>
+                <p>Easy appointment scheduling and queue management.</p>
+            </div>
+
+            <div class="home-why-card">
+                <div class="why-icon">❤️</div>
+                <h3>Patient First</h3>
+                <p>We focus on patient comfort and satisfaction.</p>
+            </div>
+
+            <div class="home-why-card">
+                <div class="why-icon">🔒</div>
+                <h3>Privacy</h3>
+                <p>We aim to protect patient information.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+
+    <section class="home-cta">
+        <h2>Take Care of Your Health Today!</h2>
+
+        <p>
+            Don't wait to get the care you deserve.
+            Register and book your appointment with us.
+        </p>
+
+        <a href="register.html">
+            Get Started →
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="home-footer">
+        <h2>🏥 HealthCare Hospital</h2>
+
+        <p>
+            Caring for your health. Supporting your future.
+        </p>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <p class="copyright">
+            © 2026 HealthCare Hospital. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>

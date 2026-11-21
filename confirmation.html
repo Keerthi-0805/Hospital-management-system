@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Confirmation</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .confirmation-card {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px #0002;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .confirmation-card h2 {
+            color: #16834a;
+            margin-bottom: 12px;
+        }
+
+        .confirmation-card p {
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .details {
+            background: #f1f6fb;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .details p {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .home-btn {
+            display: inline-block;
+            background: #123c69;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .home-btn:hover {
+            background: #0b2948;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>🏥 HealthCare Hospital</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="appointment.html">Appointment</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Booking Confirmation</h1>
+            <p>Your health is our priority</p>
+        </div>
+    </section>
+
+    <div class="confirmation-card">
+
+        <div class="success-icon">✅</div>
+
+        <h2>Appointment Confirmed!</h2>
+
+        <p>Your appointment has been booked successfully.</p>
+
+        <div class="details">
+
+            <h3>Appointment Details</h3>
+
+            <p><b>Patient Name:</b> <span id="patient"></span></p>
+
+            <p><b>Doctor Name:</b> <span id="doctor"></span></p>
+
+            <p><b>Appointment Date:</b> <span id="date"></span></p>
+
+            <p><b>Appointment Time:</b> <span id="time"></span></p>
+
+            <p><b>Appointment ID:</b> <span id="appointmentId"></span></p>
+
+        </div>
+
+        <p>Thank you for choosing HealthCare Hospital!</p>
+
+        <a href="index.html" class="home-btn">
+            Back to Home
+        </a>
+
+    </div>
+
+    <script>
+
+        const data = JSON.parse(
+            localStorage.getItem("appointment")
+        );
+
+        if (data) {
+
+            document.getElementById("patient").textContent = data.patient;
+
+            document.getElementById("doctor").textContent = data.doctor;
+
+            document.getElementById("date").textContent = data.date;
+
+            document.getElementById("time").textContent = data.time;
+
+            document.getElementById("appointmentId").textContent = data.id;
+
+        } else {
+
+            document.querySelector(".confirmation-card").innerHTML =
+                "<h2>No Appointment Details Found!</h2>" +
+                "<p>Please book your appointment first.</p>" +
+                '<a href="appointment.html" class="home-btn">Book Appointment</a>';
+
+        }
+
+    </script>
+
+</body>
+</html>
